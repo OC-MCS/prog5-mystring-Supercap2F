@@ -1,5 +1,9 @@
 #pragma once
+#include <iostream>
+using namespace std;
 // MyString class declaration goes here
+class myString;
+ostream &operator << (ostream &strm, const myString &obj);
 
 class myString {
 private:
@@ -7,7 +11,7 @@ private:
 public:
 	// default constructor 
 	myString();
-	myString(char *);
+	myString(const char *);
 
 	// copy constructor
 	myString(myString &obj);
@@ -16,18 +20,15 @@ public:
 	~myString();
 
 	// overloaded = operator
-	const myString operator=(const myString &right);
+	myString operator=(const myString &right);
 
 	// overloaded + operator
-	const myString operator+(const myString &right);
+	myString operator+(const myString &right);
 
 	// overloaded == operator
 	bool operator==(const myString &right);
 
 	// getter function returns the char pointer
-	const char * c_str();
-
-
-
+	char * c_str() const;
 
 };
